@@ -1,0 +1,179 @@
+﻿<Window x:Class="OperationsDashboardAddIns.Config.StatisticsSummaryDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:opsDash="clr-namespace:ESRI.ArcGIS.OperationsDashboard;assembly=ESRI.ArcGIS.OperationsDashboard"
+        xmlns:opsDashCtl="clr-namespace:ESRI.ArcGIS.OperationsDashboard.Controls;assembly=ESRI.ArcGIS.OperationsDashboard"
+        Title="Configure Multi-Value Summary"
+        Width="400"
+        Height="350"
+        Style="{StaticResource SizableModalDialogWindowStyle}"
+        WindowStartupLocation="CenterOwner">
+  <Grid Background="{DynamicResource DialogBackgroundBrush}">
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="auto" />
+    </Grid.RowDefinitions>
+
+    <Grid Margin="10">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+      </Grid.RowDefinitions>
+
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="auto" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <TextBlock VerticalAlignment="Center"
+                 Style="{StaticResource SettingLabelStyle}"
+                 Text="Title:" />
+      <TextBox x:Name="txtTitle"
+               Grid.Column="1"
+               Margin="5"
+               Text="New Summary Widget" />
+
+      <TextBlock Grid.Row="1"
+                 VerticalAlignment="Center"
+                 Style="{StaticResource SettingLabelStyle}"
+                 Text="Data Source:" />
+      <opsDashCtl:DataSourceSelector x:Name="DataSourceSelector"
+                                     Grid.Row="1"
+                                     Grid.Column="1"
+                                     Margin="5"
+                                     SelectionChanged="DataSourceSelector_SelectionChanged" />
+
+      <TextBlock Grid.Row="2"
+                 VerticalAlignment="Center"
+                 Style="{StaticResource SettingLabelStyle}"
+                 Text="Value Field:" />
+      <ComboBox x:Name="FieldComboBox"
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="5"
+                DisplayMemberPath="Alias" />
+      <TextBlock Grid.Row="3"
+                 Margin="2,5"
+                 VerticalAlignment="Top"
+                 Style="{StaticResource SettingLabelStyle}"
+                 Text="Operations:" />
+      <Grid Grid.Row="3"
+            Grid.Column="1"
+            Margin="5,5">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="auto" />
+          <RowDefinition Height="auto" />
+          <RowDefinition Height="auto" />
+          <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="auto" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <CheckBox x:Name="Max"
+                  Margin="2"
+                  HorizontalAlignment="Right"
+                  IsChecked="{Binding ShowMax,
+                                      Mode=TwoWay}" />
+        <TextBlock Grid.Row="0"
+                   Grid.Column="1"
+                   Margin="4,2"
+                   HorizontalAlignment="Left"
+                   Style="{StaticResource SettingLabelStyle}"
+                   Text="Maximum" />
+
+        <CheckBox x:Name="Min"
+                  Grid.Row="1"
+                  Grid.Column="0"
+                  Margin="2"
+                  HorizontalAlignment="Right"
+                  IsChecked="{Binding ShowMin,
+                                      Mode=TwoWay}" />
+        <TextBlock Grid.Row="1"
+                   Grid.Column="1"
+                   Margin="4,2"
+                   HorizontalAlignment="Left"
+                   Style="{StaticResource SettingLabelStyle}"
+                   Text="Minimum" />
+
+        <CheckBox x:Name="Avg"
+                  Grid.Row="2"
+                  Grid.Column="0"
+                  Margin="2"
+                  HorizontalAlignment="Right"
+                  IsChecked="{Binding ShowAvg,
+                                      Mode=TwoWay}" />
+        <TextBlock Grid.Row="2"
+                   Grid.Column="1"
+                   Margin="4,2"
+                   HorizontalAlignment="Left"
+                   Style="{StaticResource SettingLabelStyle}"
+                   Text="Average" />
+
+        <CheckBox x:Name="Sum"
+                  Grid.Row="3"
+                  Grid.Column="0"
+                  Margin="2"
+                  HorizontalAlignment="Right"
+                  IsChecked="{Binding ShowSum,
+                                      Mode=TwoWay}" />
+        <TextBlock Grid.Row="3"
+                   Grid.Column="1"
+                   Margin="4,2"
+                   HorizontalAlignment="Left"
+                   Style="{StaticResource SettingLabelStyle}"
+                   Text="Sum" />
+      </Grid>
+
+      <TextBlock Grid.Row="4"
+                 VerticalAlignment="Center"
+                 Style="{StaticResource SettingLabelStyle}"
+                 Text="Leading Text:" />
+      <TextBox x:Name="txtLeading"
+               Grid.Row="4"
+               Grid.Column="1"
+               Margin="5,5,5,2"
+               Text="{Binding LeadingText}" />
+
+      <TextBlock Grid.Row="5"
+                 VerticalAlignment="Center"
+                 Style="{StaticResource SettingLabelStyle}"
+                 Text="Trailing Text:" />
+      <TextBox x:Name="txtTrailing"
+               Grid.Row="5"
+               Grid.Column="1"
+               Margin="5,2,5,5"
+               Text="{Binding TrailingText}" />
+    </Grid>
+
+    <Border Grid.Row="1" Style="{DynamicResource DialogFooterBorderStyle}">
+      <StackPanel HorizontalAlignment="Right"
+                  VerticalAlignment="Bottom"
+                  Orientation="Horizontal">
+        <Button x:Name="OKButton"
+                Height="25"
+                MinWidth="65"
+                Margin="5,5,0,5"
+                Click="OKButton_Click"
+                Content="OK"
+                IsEnabled="{Binding CanOK,
+                                    Mode=OneWay}"
+                Padding="5,0" />
+        <Button Height="25"
+                MinWidth="65"
+                Margin="5"
+                Content="Cancel"
+                IsCancel="True"
+                Padding="5,0" />
+      </StackPanel>
+    </Border>
+
+  </Grid>
+</Window>

@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="OperationsDashboardAddIns.FlickrMapTool"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:opsDash="clr-namespace:ESRI.ArcGIS.OperationsDashboard;assembly=ESRI.ArcGIS.OperationsDashboard"
+             d:DesignHeight="32"
+             d:DesignWidth="32"
+             mc:Ignorable="d">
+  <Grid>
+    <ToggleButton x:Name="ToggleButton"
+                  Click="Button_Click"
+                  Style="{StaticResource ToolbarToggleButtonStyle}"
+                  ToolTip="Click to use this tool to search for photos around the current map area">
+      <Image Source="/OperationsDashboardAddIns;component/Images/FlickrPin16.png" Stretch="None" />
+    </ToggleButton>
+  </Grid>
+</UserControl>
