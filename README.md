@@ -3,7 +3,7 @@ ProfileGraph-SearchFlickr-MultiSummary-opsdashboard-addin
 
 An Operations Dashboard addin with a multi-value summary widget, a profile graph widget, a profile graph feature action, and a search photo map tool
 
-![Using the Addin in Operations Dashboard](https://raw.githubusercontent.com/esri/profileGraph-SearchFlickr-MultiSummary-opsdashboard-addin/master/ProfileGraph-SearchFlickr-MultiSummary.png)
+![Using the Addin in Operations Dashboard](ProfileGraph-SearchFlickr-MultiSummary.png)
 
 ## Features
  
@@ -65,7 +65,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
                                  
 A copy of the license is available in the repository's
-[license.txt](https://github.com/esri/profileGraph-SearchFlickr-MultiSummary-opsdashboard-addin/blob/master/license.txt) file.
+[license.txt](license.txt) file.
                                                                   
 [](Esri Tags: User Conference)
 [](Esri Tags: 2014)
